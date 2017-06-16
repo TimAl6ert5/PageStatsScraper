@@ -2,6 +2,8 @@
 <Configuration status="info">
     <Properties>
         <Property name="LOGLVL_TIMA">info</Property>
+        <Property name="LOGLVL_SPRING">warn</Property>
+        <Property name="LOGLVL_HIBRN8">warn</Property>
         <Property name="LOGLVL_ROOT">info</Property>
     </Properties>
     <Appenders>
@@ -11,6 +13,8 @@
     </Appenders>
     <Loggers>
         <Logger name="com.timal6ert5" level="${env:LOGLVL_TIMA}"/>
+        <Logger name="org.springframework" level="${env:LOGLVL_SPRING}"/>
+        <Logger name="org.hibernate" level="${env:LOGLVL_HIBRN8}"/>
         <Root level="${env:LOGLVL_ROOT}">
             <AppenderRef ref="Console"/>
         </Root>

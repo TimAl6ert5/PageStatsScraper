@@ -61,5 +61,5 @@ Edit the application.properties file for your required datasoure URL, username a
 
 You can generate the database schema manually, or use the property `spring.jpa.generate-ddl=true` in the `application.properties` file to have the schema automatically generated.
 
-Example to run the applicatoin, use the command `java -jar scraper-app.jar http://www.yahoo.com/`
+Example to run the application, use the command `java -jar scraper-app.jar http://www.yahoo.com/`
 

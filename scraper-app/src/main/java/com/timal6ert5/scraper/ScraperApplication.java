@@ -1,5 +1,6 @@
 package com.timal6ert5.scraper;
 
+import java.io.File;
 import java.util.Map;
 
 import org.slf4j.Logger;
@@ -11,6 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.timal6ert5.scraper.entity.PageScrapeRecord;
 import com.timal6ert5.scraper.service.PageStatsService;
+import com.timal6ert5.scraper.service.RecordDumpService;
 import com.timal6ert5.scraper.service.ScraperService;
 import com.timal6ert5.scraper.service.StatsRecordingService;
 
@@ -25,6 +27,8 @@ public class ScraperApplication implements CommandLineRunner {
   private PageStatsService pageStatsService;
   @Autowired
   private StatsRecordingService statsRecordingService;
+  @Autowired
+  private RecordDumpService recordDumpService;
 
   @Override
   public void run(String... args) throws Exception {
@@ -44,7 +48,10 @@ public class ScraperApplication implements CommandLineRunner {
     logger.info("Scrape word count: {}", wordstats.size());
 
     PageScrapeRecord record = statsRecordingService.record(scrapeUrl, wordstats);
-    logger.info("Scrape Record: {}", record.getId());
+    logger.info("Scrape Record ID: {}", record.getId());
+
+    File file = recordDumpService.fileDump(record);
+    logger.info("Scrape File: {}", file);
   }
 
   public static void main(String[] args) {
