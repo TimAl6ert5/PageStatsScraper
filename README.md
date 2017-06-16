@@ -1,6 +1,6 @@
 # PageStatsScraper
 
-The purpose of this application is to accept a URL, scrape the page, determine all words that aren't part of the HTML, count the frequency of each word and save the results to a database.
+The purpose of this application is to accept a URL, scrape the page, determine all words that aren't part of the HTML, count the frequency of each word, save the results to a database and dump the record to a JSON formatted file in the working directory.
 
 ## Database Schema
 This application is built to use a MySQL database.  The database consists of two tables.
@@ -46,6 +46,11 @@ Improvements in this service would include:
 * review the word length limit (currently 256)
 * support multiple languages
 * translate languages
+
+The record file dump service, RecordDumpService, uses Gson conversion.
+Improvements in this service would include:
+* user selectable dump file location
+* add configuration to dump only words that exceed a count threshold
 
 
 ## To Build and Run
